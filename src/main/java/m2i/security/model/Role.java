@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,7 +13,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 
-
+@Entity
 public class Role {
 
 	@Id
@@ -27,6 +28,16 @@ public class Role {
 			name = "role_privilege", 
 			joinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "privilege_id", referencedColumnName = "id"))
 	private Collection<Privilege> privileges;
+	
+	protected Role() {
+		
+	};
+	
+	public Role(String name, Collection<Privilege> privileges) {
+
+		this.name = name;
+		this.privileges = privileges;
+	}
 
 	public String getName() {
 		return name;
