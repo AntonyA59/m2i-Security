@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII"/>
+<title th:utext="#{label.form.title}">form</title>
+</head>
+<body>
+
+            <form action="#" th:action="@{/register}" method="POST" enctype="utf8" th:object='${user}'>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-3">email</label>
+                    <span class="col-sm-5"><input id="email" th:field='*{email}' type="email" class="form-control" name="email" value="" required="required"/></span>
+ 
+                    
+                </div>
+                <div class="form-group row">
+                    <label for="password" class="col-sm-3" >password</label>
+                    <span class="col-sm-5"><input id="password" th:field='*{password}'class="form-control" name="password" value="" type="password" required="required"/></span>
+  
+                </div>
+
+                <br/>
+                <button type="submit" class="btn btn-primary" >submit</button>
+            </form>
+            <br/> 
+
+
+
+</body>
+
+</html>
